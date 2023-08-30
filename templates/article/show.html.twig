@@ -23,9 +23,9 @@
     </table>
 
     {# <a href="{{ path('app_article_index') }}">back to list</a> #}
-    <div>
-        <a href="{{ path('app_comment_new', {'id' : article.id}) }}">Ajouter un commentaire
-    </div>
+    
+    <a href="{{ path('app_comment_new', {'id' : article.id}) }}">Ajouter un commentaire</a>
+    
 
     <div>
         {% for comment in comments %}
