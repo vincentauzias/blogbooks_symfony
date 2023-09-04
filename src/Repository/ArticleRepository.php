@@ -52,7 +52,7 @@ class ArticleRepository extends ServiceEntityRepository
    public function findBySearch(string $text): array
    {
        return $this->createQueryBuilder('a')
-           ->andWhere('a.content LIKE = :val')
+           ->andWhere('a.content LIKE :val')
            ->setParameter('val', "%$text%")
            ->getQuery()
            ->getResult()
