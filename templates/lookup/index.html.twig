@@ -3,26 +3,20 @@
 {% block title %}Hello LookupController!{% endblock %}
 
 {% block body %}
-    <div>
-        <form>
-            <input type="search" name="search" placeholder="Rechercher..." />
-            <button type="submit">Rechercher</button>
-        </form>
-    </div>
-    <table>
+    <h1>Résultats de la recherche</h1>
+    <h2 class=" my-4 ">Nous avons trouvé les articles suivants :</h2>
+
         {% for article in articles %}
-            <tr>
-                <td>{{ article.id }}</td>
-                <td>{{ article.title }}</td>
-                <td>{{ article.content }}</td>
-                <td>
-                    <a href="{{ path('app_article_show', {'id': article.id}) }}">show</a>
-                </td>
-            </tr>
+            <div>
+                <h3>{{ article.title }}</h3>
+                <div>
+                    <a href="{{ path('app_article_show', {'id': article.id}) }}">Consulter le contenu de l'article</a>
+                </div>
+            </div>
         {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
+            <div>
+                Aucun article disponible pour ces critères de recherche
+            </div>
         {% endfor %}
-    </table>
+
 {% endblock %}
